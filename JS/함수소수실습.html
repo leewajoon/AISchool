@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // var min_num, max_num, count = 0;
+        // var num1 = parseInt(prompt("첫번째 숫자 입력!!"));
+        // var num2 = parseInt(prompt("두번째 숫자 입력!!"));
+
+        // if (num1 > num2) {
+        //     min_num = num2;
+        //     max_num = num1;
+        // }
+        // else {
+        //     min_num = num1;
+        //     max_num = num2;
+        // }
+
+        // for (var i = min_num; i <= max_num; i++) {
+        //     for (var j = 2; j < i; j++) {
+        //         if (i % j == 0) {
+        //             break;
+        //         }
+
+        //     }
+        //     if (i == j) {
+        //         count++;
+        //         console.log(i);
+        //     }
+        // }
+
+        // console.log("총소수의 갯수 = ", count);
+
+//         function input_data() {
+//             var min_num, max_num;
+//             var num1 = parseInt(prompt("첫번째 숫자 입력!!"));
+//             var num2 = parseInt(prompt("두번째 숫자 입력!!"));
+//             return { num_1: num1, num_2: num2 };
+//         }
+
+//         function minmax_prodoc(num1, num2) {
+//             var min, max;
+//             if (num1 < num2) {
+//                 min = num1;
+//                 max = num2;
+//             }
+//             else {
+//                 min = num2;
+//                 max = num1;
+//             }
+//             return { min_num: min, max_num: max };
+//         }
+
+//         function prime_number(min, max) {
+//             var count=0;
+//             for (var i = min; i <= max; i++) {
+//                 for (var j = 2; j < i; j++) {
+//                     if (i % j == 0) {
+//                         break;
+//                     }
+
+//                 }
+//                 if (i == j) {
+//                     count++;
+//                     console.log(i);
+//                 }
+//             }
+//             return count; 
+//         }
+
+//         function total_count(count) {
+//                     document.write("총소수의 갯수 = ", count);
+
+//         }
+
+//  var inputData = input_data();
+//  var minMax = minmax_prodoc(inputData.num_1, inputData.num_2);
+//  var count = prime_number(minMax.min_num, minMax.max_num);
+//  total_count(count);
+
+
+// 화살표 함수로 바꾸기
+        var input_data = () => {
+            var min_num, max_num;
+            var num1 = parseInt(prompt("첫번째 숫자 입력!!"));
+            var num2 = parseInt(prompt("두번째 숫자 입력!!"));
+            return { num_1: num1, num_2: num2 };
+        };
+
+        var minmax_prodoc = (num1, num2) => {
+            var min, max;
+            if (num1 < num2) {
+                min = num1;
+                max = num2;
+            }
+            else {
+                min = num2;
+                max = num1;
+            }
+            return { min_num: min, max_num: max };
+        };
+
+        var prime_number = (min, max) => {
+            var count=0;
+            for (var i = min; i <= max; i++) {
+                for (var j = 2; j < i; j++) {
+                    if (i % j == 0) {
+                        break;
+                    }
+
+                }
+                if (i == j) {
+                    count++;
+                    console.log(i);
+                }
+            }
+            return count; 
+        };
+
+        var total_count = (count) => {
+                    document.write("총소수의 갯수 = ", count);
+
+        }
+
+ var inputData = input_data();
+ var minMax = minmax_prodoc(inputData.num_1, inputData.num_2);
+ var count = prime_number(minMax.min_num, minMax.max_num);
+ total_count(count);
+
+
+    </script>
+</body>
+
+</html>

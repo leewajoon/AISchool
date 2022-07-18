@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var resID;
+        window.onload = function () {
+            var clock = document.getElementById('clock');
+
+            resID = setInterval(function () {
+                var now = new Date();
+                let year = now.getFullYear();
+                let month = now.getMonth() + 1;
+                let date = now.getDate();
+                let hour = now.getHours();
+                let minute = now.getMinutes();
+                let second = now.getSeconds();
+                let result = `${year}년 ${month}월 ${date}일 ${hour}시 ${minute}분 ${second}초`;
+                clock.innerHTML = result;
+            }, 1000);
+
+            //함수 선언문
+            function start() {
+                resID = setInterval(clock_start, 1000);
+            }
+            //함수 리터널
+            // var start = function () {
+            //     resID = setInterval(clock_start, 1000);
+            // };
+            //화살표 함수
+            // var start = () => {
+            //    resID = setInterval(clock_start, 1000);  
+            // };            
+            function stop() {
+                clearInterval(resID);
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <h3 id="clock"></h3>
+    <button onClick="start();">시작</button>
+    <button onClick="stop();">중지</button>
+</body>
+
+</html>

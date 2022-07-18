@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<style>
+    div {
+        border: 1px solid #000;
+    }
+
+    #outer {
+        background-color: blue;
+        width: 100px;
+        height: 100px;
+    }
+</style>
+
+<head>
+    <title>jQuery Basic</title>
+    <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('body').on("click", "#outer", function () { alert('outer'); }); //동적인거 동작O 바디 안에 outer 있어서 단독으로 동작o
+            // $('body').html('<div id="outer"></div>');
+            // $("#outer").on("click", function () { alert('outer'); });  //동작X outer 순서상 못 찾아서 //바디안에 outer 넣어주면(21번줄과 함께 넣어주면) 동작o
+            // const outer = document.querySelector('#outer'); //동작x out 순서상 못 찾아서 //바디안에 outer 넣어주면(21번줄과 함께 넣어주면) 동작o
+            // outer.addEventListener('click', function () {
+            //     alert('outer');
+            // });
+        });
+        function tag_insert() {
+            //$('body').html('<div id="outer"></div>');
+            $('body').append('<div id="outer"></div>');
+        }
+    </script>
+</head>
+
+<body>
+    <button onClick="tag_insert()">태그추가</button>
+</body>
+
+</html>

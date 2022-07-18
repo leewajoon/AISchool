@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gugudanO</title>
+</head>
+<body>
+    <script>
+        var num1 = parseInt(prompt ("첫번째 숫자 입력!!"));
+        var num2 = parseInt(prompt ("두번째 숫자 입력!!"));
+        var min_num, max_num
+
+        if (num1>num2){
+            min_num=num2
+            max_num=num1
+        }else {
+            min_num=num1
+            max_num=num2
+        }
+
+  
+     document.write("<table border='1px align='center'>");
+     document.write("<tr align='center'>");
+     for (var i = min_num; i <= max_num; i++)
+     {
+        // document.write("<th>"+ i + "단" + "</th>");
+        document.write(`<th> ${i} 단</th>`);
+     }
+     document.write("</tr>");
+     for (var j=1; j <= 9; j++)
+     {
+        document.write("<tr align='center'>");
+        for (var i=min_num; i<=max_num; i++){
+            // document.write("<td>" + i + "*" + j + "=" + (i*j) + "</td>");
+            document.write(`<td>${i} * ${j} = ${i*j}</td>`);
+        }
+     }
+     document.write("</tr");
+     document.write("</table>");
+
+    </script>
+    
+</body>
+</html>

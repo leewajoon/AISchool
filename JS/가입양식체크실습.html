@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTP-8">
+
+<head>
+    <title>HTML TEXT Basic Page</title>
+    <script>
+        function check_input() {
+            var chk_list = "";
+            // 아이디 체크
+            var id = document.input_form.id.value;
+            if (id == "") { // 입력 여부 검사
+                alert("아이디를 입력하세요!!!");
+                document.input_form.id.focus();
+                return false;
+            }
+            else {
+                if (id.length < 6 || id.length > 10) { // 입력 길이 검사
+                    alert("아이디 길이 확인(6~10자리)!!!");
+                    document.input_form.id.focus();
+                    return false;
+                }
+                else {
+                    for (i = 0; i < id.length; i++) { // 숫자 또는 영문자 인지 검사
+                        ch = id.substring(i, i + 1);
+                        if (!((ch >= "0" && ch <= "9") || (ch >= "a" && ch <= "z") || (ch >= "A" && ch <= "Z"))) {
+                            alert("특수문자가 포함, 다시 입력!!!");
+                            document.input_form.id.focus();
+                            return false;
+                        }
+                    }
+                }
+            }
+            chk_list = "아이디 : " + id + "\n";
+            //비밀번호 체크
+            var pa1 = document.input_form.pa1.value;
+            if (pa1 == "") { // 입력 여부 검사
+                alert("비번을 입력하세요!!!");
+                document.input_form.pa1.focus();
+                return false;
+            }
+            else {
+                if (pa1.length < 6 || pa1.length > 10) { // 입력 길이 검사
+                    alert("비번의 길이를 확인하세요(6~10자리)!!!");
+                    document.input_form.pa1.focus();
+                    return false;
+                }
+                else {
+                    for (i = 0; i < pa1.length; i++) { // 숫자 또는 영문자 인지 검사
+                        ch = pa1.substring(i, i + 1);
+                        if (!((ch >= "0" && ch <= "9") || (ch >= "a" && ch <= "z") || (ch >= "A" && ch <= "Z"))) {
+                            alert("특수문자가 포함, 다시 입력!!!");
+                            document.input_form.pa1.focus();
+                            return false;
+                        }
+                    }
+                }
+            }
+
+
+
+
+            var pa2 = document.input_form.pa2.value;
+            if (!(pa1 == pa2)) {
+                alert("비번이 같은지 확인하세요!!!");
+                document.input_form.pa1.focus();
+                return false;
+            }
+
+            chk_list += "비밀번호 : " + pa1 + "\n";
+
+            //주민번호 체크
+
+            var jumin1 = document.input_form.jumin1.value;
+            var jumin2 = document.input_form.jumin2.value;
+            if (jumin1 == "" || jumin2 == "") { // 입력 여부 검사
+                alert("주민등록번호를 입력하세요!!!");
+                if (jumin1 == "") {
+                    document.input_form.jumin1.focus();
+                    return false;
+                }
+                if (jumin2 == "") {
+                    document.input_form.jumin2.focus();
+                    return false;
+                }
+            }
+            else if (jumin1.length < 6 || jumin2.length < 7) {
+                if (jumin1.length < 6) {               //입력 길이 검사
+                    alert("주민등록번호의 길이를 확인하세요!!!");
+                    document.input_form.jumin1.focus();
+                    return false;
+                }
+
+                if (jumin2.length < 7) {
+                    alert("주민등록번호의 길이를 확인하세요!!!");
+                    document.input_form.jumin2.focus();
+                    return false;
+                }
+            } else {
+                for (i = 0; i < jumin1.length; i++) { // 숫자 또는 영문자 인지 검사
+                    ch = jumin1.substring(i, i + 1);
+                    if (!((ch >= "0" && ch <= "9"))) {
+                        alert("숫자만 입력하세요!!!");
+                        document.input_form.jumin1.focus();
+                        return false;
+                    }
+                }
+                for (i = 0; i < jumin2.length; i++) { // 숫자 또는 영문자 인지 검사
+                    ch = jumin2.substring(i, i + 1);
+                    if (!((ch >= "0" && ch <= "9"))) {
+                        alert("숫자만 입력하세요!!!");
+                        document.input_form.jumin2.focus();
+                        return false;
+                    }
+                }
+
+
+            }
+
+            var total = 0;
+            var ck = 2;
+            var ck_number = 11
+            var number2 = jumin1 + jumin2
+            for (var i = 0; i < number2.length - 1; i++) {
+                total += number2[i] * ck;
+                ck++
+                if (ck == 10) {
+                    ck = 2;
+                }
+
+            }
+            total = total % 11;
+            ck_number -= total;
+
+            if (number2[number2.length - 1] == ck_number % 10) { //number2.length - 1 = 12  렌스 - 1 = 인덱스
+                // alert("주민등록번호 일치");
+            } else {
+                alert("주민등록번호 오류");
+                return false
+            }
+
+
+            chk_list += "주민등록번호 : " + jumin1 + "-" + jumin2 + "\n";
+
+            // 성별 체크
+
+            if (!(document.input_form.gender[0].checked == true || document.input_form.gender[1].checked == true)) {
+                alert("성별을 선택하세요!!!");
+                return false;
+            }
+            if (document.input_form.gender[0].checked == true) {
+                str = document.input_form.gender[0].value;
+            }
+            else {
+                str = document.input_form.gender[1].value;
+            }
+            chk_list += "성별 : " + str + "\n";
+
+
+
+            //전화번호
+            var pn1 = document.input_form.pn1.value;
+            var pn2 = document.input_form.pn2.value;
+            var pn3 = document.input_form.pn3.value;
+
+            if (pn1 == "" || pn2 == "" || pn3 == "") {
+                alert("입력하세요!!!");
+                document.input_form.pn1.focus();
+                return false;
+            }
+            else {
+
+                for (var i = 0; i < pn1.length; i++) { // 숫자 또는 영문자 인지 검사
+                    ch = pn1.substring(i, i + 1);
+                    if (!(ch >= "0" && ch <= "9")) {
+                        alert("숫자만 입력하세요!!!");
+                        document.input_form.pn1.focus();
+                        return false;
+                    }
+                }
+                for (var i = 0; i < pn2.length; i++) { // 숫자 또는 영문자 인지 검사
+                    ch = pn2.substring(i, i + 1);
+                    if (!(ch >= "0" && ch <= "9")) {
+                        alert("숫자만 입력하세요!!!");
+                        document.input_form.pn2.focus();
+                        return false;
+                    }
+                }
+                for (var i = 0; i < pn3.length; i++) { // 숫자 또는 영문자 인지 검사
+                    ch = pn3.substring(i, i + 1);
+                    if (!(ch >= "0" && ch <= "9")) {
+                        alert("숫자만 입력하세요!!!");
+                        document.input_form.pn3.focus();
+                        return false;
+                    }
+                }
+            }
+
+            chk_list += "전화번호 : " + pn1 + "-" + pn2 + "-" + pn3 + "\n";
+
+            //이메일 확인
+            var email = document.input_form.email.value;
+            var label = document.input_form.label.value;
+            if (email == "") { // 입력 여부 검사
+                alert("이메일을 입력하세요!!!");
+                document.input_form.email.focus();
+                return false;
+            }
+            else {
+                if (label == "") {
+                    alert("메일 주소를 선택하세요!!!");
+                    document.input_form.label.focus();
+                    return false;
+                }
+            }
+
+            chk_list += "이메일 : " + email + "@" + label + "\n"
+
+            // 취미 확인
+
+            var hobby = document.input_form.hobby.value;
+            if (!(document.input_form.hobby[0].checked == true
+                || document.input_form.hobby[1].checked == true
+                || document.input_form.hobby[2].checked == true
+                || document.input_form.hobby[3].checked == true
+                || document.input_form.hobby[4].checked == true)) {
+                alert("성별을 선택하세요!!!");
+                return false;
+            }
+            if (document.input_form.hobby[0].checked == true) {
+                str = document.input_form.gender[0].value;
+            }
+            else {
+                str = document.input_form.gender[1].value;
+            }
+
+            //자기 소개 확인
+            var intro = document.input_form.intro.value;
+            chk_list += "자기소개 : " + intro + "\n";
+
+
+
+
+            // 출력
+
+            alert(chk_list);
+            return false;
+
+        }
+
+
+    </script>
+</head>
+
+<body>
+    <form name="input_form" method="post">
+        <table align="center" border="1">
+            <!--아이디-->
+            <tr>
+                <th>아이디</th>
+                <td>
+                    <input type="text" name="id" placeholder="(최소6~최대10,숫자와알파벳만 사용)" size="30">
+                </td>
+            </tr>
+            <!--비밀번호-->
+            <tr>
+                <th>비밀번호</th>
+                <td>
+                    <input type="password" name="pa1" placeholder="(최소6~최대10,숫자와알파벳만 사용)" size="30">
+                </td>
+            </tr>
+            <!--비밀번호확인-->
+            <tr>
+                <th>비밀번호확인</th>
+                <td>
+                    <input type="password" name="pa2" placeholder="(최소6~최대10,숫자와알파벳만 사용)" size="30">
+                </td>
+            </tr>
+            <!--주민번호-->
+            <tr>
+                <th>주민번호</th>
+                <td>
+                    <input type="text" name="jumin1" maxlength="6">-<input type="password" name="jumin2" maxlength="7">
+                </td>
+            </tr>
+            <!--성별-->
+            <tr>
+                <th>성별</th>
+                <td>
+                    <input type="radio" name="gender" value="남" />남자
+                    <input type="radio" name="gender" value="여" />여자
+                </td>
+
+            </tr>
+            <!--전화번호-->
+            <tr>
+                <th>전화번호</th>
+                <td>
+                    <input type="text" name="pn1" maxlength="3">-<input type="text" name="pn2" maxlength="4">-<input
+                        type="text" name="pn3" maxlength="4">
+                </td>
+            </tr>
+            <!--이메일-->
+            <tr>
+                <th>이메일</th>
+                <td>
+                    <input type="text" name="email"> @
+                    <select name="label">
+                        <option value="">메일주소선택</option>
+                        <option value="gmail.com">gmail.com</option>
+                        <option value="naver.com">naver.com</option>
+                        <option value="daum.net">daum.net</option>
+                    </select>
+                </td>
+            </tr>
+            <!--취미-->
+            <tr>
+                <th>취미</th>
+                <td>
+                    <input type="checkbox" name="hobby" />등산 <input type="checkbox" name="hobby" />독서 <input
+                        type="checkbox" name="hobby" />스키 <input type="checkbox" name="hobby" />음악 <input
+                        type="checkbox" name="hobby" />영화
+                </td>
+
+            </tr>
+            <!--자기소개-->
+            <tr>
+                <th>자기소개</th>
+                <td>
+                    <textarea name="intro" rows="10" cols="60"></textarea>
+                </td>
+            </tr>
+            <!--입력취소-->
+            <tr>
+                <th colspan="2">
+                    <input type="button" value="입력" onclick="check_input()" /> <input type="reset" value="취소" />
+                </th>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+/* 초기화 */
+* { margin: 0; padding: 0; }
+body { 
+    font-family: 'Times New Roman', serif;
+    width: 960px; margin: 0 auto; 
+}
+li { 
+    list-style: none; 
+}
+a { 
+    text-decoration: none;
+    padding-right: 20px;
+    color : black; 
+}
+img { border: 0; }
+
+
+/* <!-- 상단 네비 왼쪽 --> */
+#social-networks-icon > ul.left {
+    overflow: hidden;
+    width: 700px;
+    float: left;
+    padding-left: 10px;
+}
+#social-networks-icon > ul.left > li { 
+    float: left;
+    padding-left: 10px;
+ }
+ .clear {
+    clear: both;
+}
+
+/* <!-- 상단 네비 오른쪽 --> */
+#sidbar > ul.right {
+    overflow: hidden;
+    width: 260px;
+    float: right;
+    padding-left: 10px;
+}
+#sidbar > ul.right > li { 
+    float: right;
+    padding-left: 10px;
+ }
+
+ .dropdown-content {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: white;
+}
+
+li.dropdown {
+    display: block;
+}
+
+.dropdown-content {
+    color: black;
+    padding: 0px 0px;
+    text-decoration: none;
+    display: none;
+    text-align: left;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 0px 0px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+		background-color: #f1f1f1
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.clear {
+    clear: both;
+}
+
+/* <!-- 로고 타이틀 --> */
+.clear {
+    clear: both;
+}
+#main_header {
+    width: 960px; margin: 0 auto; 
+}
+.clear {
+    clear: both;
+}
+#main_header > #title > h1 {
+    width: 960px; margin: 0 auto; 
+}
+
+/* <!-- 메인 메뉴 --> */
+.clear {
+    clear: both;
+}
+#menu > ul {
+    overflow: hidden;
+    float: left;
+    padding: 0 100px;
+}
+#menu > ul > li { float: left; }

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-3.1.0.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#addbtn').click(function () {
+                var row = `<tr><td>${$('#irum').val()}</td><td>${$('#score').val()}</td><td><input type="button" class="btnDel" value="Del"></td></tr >`
+
+
+                $('#list').append(row);
+                $('#irum').val('');
+                $('#score').val('');
+            })
+            $("#list").on("click", ".btnDel", function () {
+                $(this).parent().parent().remove();
+            })
+        });
+    </script>
+</head>
+
+<body>
+    <table id="list" border="1" align="center">
+        <tr>
+            <td><input type="text" id="irum" size="10" placeholder="이름입력"></td>
+            <td><input type="text" id="score" size="10" placeholder="점수입력"></td>
+            <td><input type="button" id="addbtn" value="추가"></td>
+        </tr>
+        <tr>
+            <th>이름</th>
+            </td>
+            <th>점수</th>
+            </td>
+            <td></td>
+        </tr>
+
+
+    </table>
+</body>
+
+</html>

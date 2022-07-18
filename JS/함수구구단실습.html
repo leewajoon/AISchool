@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습</title>
+</head>
+
+<body>
+    <script>
+        function input_number() {
+            var num1, num2; //지역변수
+            num1 = parseInt(prompt("첫번째 숫자 입력"));
+            num2 = parseInt(prompt("두번째 숫자 입력"));
+            return { num_1: num1, num_2: num2 }
+        }
+
+        function number_compare(num1, num2) {
+            var min, max;
+            if (num1 < num2) {
+                min = num1;
+                max = num2;
+            }
+            else {
+                min = num2;
+                max = num1;
+            }
+            return { min_num: min, max_num: max };
+
+            
+        }
+        function gugudan_proc(min, max) {
+            document.write("<table border='1' align='center'>");
+            document.write("<tr align='center'>");
+            for (i = min; i <= max; i++) {
+                document.write("<th>" + i + "단" + "</th>");
+            }
+            document.write("</tr>");
+
+            for (j = 1; j <= 9; j++) {
+                document.write("<tr align='center'>");
+                for (i = min; i <= max; i++) {
+                    document.write("<td>" + i + "*" + j + "=" + (i * j) + "</td>");
+                }
+                document.write("</tr>");
+            }
+
+            document.write("</table>");
+        }
+        
+        function gugudan() {
+            var num1, num2, min, max, i, j;
+
+            var num = input_number();
+
+            num1 = num.num_1;
+            num2 = num.num_2;
+
+            var min_max = number_compare(num1, num2);
+            min = min_max.min_num;
+            max = min_max.max_num;
+
+            gugudan_proc(min, max);
+
+
+
+
+        }
+
+        gugudan();
+
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for->while</title>
+</head>
+
+<body>
+    <script>
+        var ck;
+        var cnt = 0;
+        var num1 = parseInt(prompt("첫번째 수 입력"));
+        var num2 = parseInt(prompt("두번째 수 입력"));
+        var min = Math.min(num1, num2);
+        var max = Math.max(num1, num2);
+        document.write("[");
+        // for (var i = min; i <= max; i++) {
+        //     ck = true;
+        //     for (var j = 2; j < i; j++) {
+        //         if (i % j == 0) {
+        //             ck = false;
+        //             break;
+        //         }
+        //     }
+        //     if (ck) {
+        //         document.writeln(`${i} `);
+        //         cnt++;
+        //     }
+        // }
+
+        // var i = min;
+        // while (i <= max) {
+        //     ck = true;
+        //     var j = 2;
+        //     while (j < i) {
+        //         if (i % j == 0) {
+        //             ck = false;
+        //             break;
+        //         }
+        //         j++
+        //     }
+        //     
+        //     i++;
+        // }
+        // document.write("]");
+        // document.write(` 총 갯수 ${cnt}개`);
+         
+        var i = min;
+        do {
+            ck = true;
+            var j = 3;
+            
+            do {
+                if( i%j==0 ){
+                        ck = false;
+                        break;  
+                }  j++;       
+            }
+            while(j < i);
+            
+            if (ck) {
+                document.writeln(`${i} `);
+                cnt++;
+            }
+            i++;
+        }
+        while(i <= max);
+       
+        document.write("]");
+        document.write(` 총 갯수 ${cnt}개`);
+
+        // for문의 구조
+        // for (초기식;조건식;증감식){
+        //     반복처리할 내용;
+        // }
+     
+        // while문의 구조
+        // 초기식;
+        // while (조건식){
+        //     반복처리할 내용;
+        //     증감식;
+        // }
+
+        // do while문의 구조
+        // 초기식;
+        //do {
+            // 반복처리할 내용;
+            // 증감식;
+        // }while(조건식);
+    
+    </script>
+</body>
+
+</html>

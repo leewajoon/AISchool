@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>objtest</title>
+</head>
+
+<body>
+    <script>
+var person = {
+    hakbun:'',
+    irum:'',
+    kor:0,
+    eng:0,
+    math:0,
+    tot:0,
+    avg:0.0,
+    grade:'',
+    getTotal: function() {
+        this.tot = this.kor + this.eng + this.math;
+    },
+    getAvg: function() {
+        this.avg = this.tot / 3;
+    },
+    getGrade: function() {
+        switch (parseInt(this.avg / 10)) {
+            case 10:
+            case 9:
+            this.grade ='수'
+            break;
+            case 8:
+            this.grade ='우'
+            break;            
+            case 7:
+            this.grade ='미'
+            break;            
+            case 6:
+            this.grade ='양'
+            break;
+            default:
+            this.grade ='가'
+            break;
+        }
+    },
+    printData:function() {
+        str = ("<table border='1px'><tr>");
+        str += ("<td>학번</td>"); 
+        str += ("<td>이름</td>"); 
+        str += ("<td>국어</td>"); 
+        str += ("<td>영어</td>"); 
+        str += ("<td>수학</td>"); 
+        str += ("<td>총점</td>"); 
+        str += ("<td>평균</td>"); 
+        str += ("<td>등급</td></tr>"); 
+        str += (`<tr><td>${this.hakbun}</td>`);
+        str += (`<td>${this.irum}</td>`);
+        str += (`<td>${this.kor}</td>`);
+        str += (`<td>${this.eng}</td>`);
+        str += (`<td>${this.math}</td>`);
+        str += (`<td>${this.tot}</td>`);
+        str += (`<td>${this.avg}</td>`);
+        str += (`<td>${this.grade}</td></tr>`);
+        str += (`</table>`);
+        return document.write(str);
+    }  
+};
+
+person.hakbun = prompt("학번 입력");
+person.irum = prompt("이름 입력");
+person.kor = parseInt(prompt("국어점수 입력"));
+person.eng = parseInt(prompt("영어점수 입력"));
+person.math = parseInt(prompt("수학점수 입력"));
+person.getTotal();
+person.getAvg();
+person.getGrade();
+person.printData();
+
+
+    </script>
+</body>
+
+</html>

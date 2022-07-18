@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HTML TEXT Basic Page</title>
+</head>
+<body>
+<form method="post">
+<table border="1">
+    <!--아이디-->
+    <tr>
+        <th>아이디</th>
+        <td>
+                <input type="text" name="ID" placeholder=" ( 최소6~최대10,숫자와알파벳만 사용)"size="30">
+        </td>
+    </tr>
+    <!--비밀번호-->
+    <tr>
+        <th>비밀번호</th>
+        <td>
+                     <input type="password" name="password"> (최소6~최대10,숫자와알파벳만 사용)
+        </td>
+    </tr>
+        <!--비밀번호확인-->
+    <tr>
+        <th>비밀번호확인</th>
+        <td>
+                     <input type="password" name="password"> (최소6~최대10,숫자와알파벳만 사용)
+        </td>
+    </tr>
+    <!--주민번호-->
+    <tr>
+        <th>주민번호</th>
+        <td>
+            <input type="text" name="주민번호앞자리" maxlength="6">-<input type="password" name="주민번호뒷자리" maxlength="7">
+        </td>
+    </tr>
+    <!--성별-->
+    <tr>
+        <th>성별</th>
+        <td>
+        <input type="radio" name="gender" value="남"/>남자
+        <input type="radio" name="gender" value="여"/>여자            
+        </td>
+
+    </tr>
+    <!--전화번호-->
+    <tr>
+        <th>전화번호</th>
+        <td>
+            <input type="text" name="앞자리" maxlength="3">-<input type="text" name="중간" maxlength="4">-<input type="text" name="끝
+        " maxlength="4">
+        </td>
+    </tr>
+    <!--이메일-->
+    <tr>
+        <th>이메일</th>
+        <td>
+            <input type="text" name="email"> @     <select>
+                <option label="메일주소선택">
+                    <option>gmail.com</option>
+                    <option>naver.com</option>
+                    <option>daum.net</option>
+    </td>
+    </tr>
+    <!--취미-->
+    <tr>
+        <th>취미</th>
+        <td>
+        <input type="checkbox" name="hobby"/>등산         <input type="checkbox" name="hobby"/>독서         <input type="checkbox" name="hobby"/>스키         <input type="checkbox" name="hobby"/>음악         <input type="checkbox" name="hobby"/>영화            
+        </td>
+
+    </tr>
+    <!--자기소개-->
+    <tr>
+        <th>자기소개</th>
+        <td>
+        <textarea rows="10" cols="60"></textarea>            
+        </td>
+    </tr>
+        <!--입력취소-->
+        <tr>
+        <th colspan="2">
+        <input type="submit" value="입력"/> <input type="reset" value="취소"/>
+        </th>  
+        </tr>
+</table>
+</form>
+</body>
+</html>

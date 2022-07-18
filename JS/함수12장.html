@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function add(x, y) {
+  return x + y;
+}
+
+
+console.log(add(2, 5)); 
+
+// 변수에 함수 리터럴을 할당
+// var f = function add(x, y) {
+//   return x + y;
+// };
+
+
+var f = function (x, y) {
+  return x + y;
+};//익명함수
+var res = f(4, 5)//함수호출문
+console.log(res);
+    </script>
+</body>
+</html>
+<!-- 
+파라메터(인수)
+1.형식매개변수(가인수)-함수를 정의할때 기술
+2.실매개변수(실인수)-함수를 호출할때 기술 -->
+
+<!-- 자바스크립트 실행 순서
+1. 실행전 선언문을 먼저 실행한다.(전처리)
+2.코드를 순서대로 실행한다. -->
