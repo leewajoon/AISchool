@@ -8,12 +8,12 @@
 // export default App;
 
 // 193p info.js
-import FormReducer from "./FormReducer";
-const App = () => {
-  return <FormReducer />;
-};
+// import FormReducer from "./FormReducer";
+// const App = () => {
+//   return <FormReducer />;
+// };
 
-export default App;
+// export default App;
 
 //198p
 // import { useState } from "react";
@@ -38,3 +38,12 @@ export default App;
 // export default App;
 
 //202p
+
+//205p
+import Info from "./Info";
+
+const App = () => {
+  return <Info />;
+};
+
+export default App;
