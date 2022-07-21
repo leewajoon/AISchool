@@ -1,5 +1,5 @@
 // import logo from "./logo.svg";
-// import "./FormInput.css";
+import "./FormInput.css";
 // import { Component, component } from "react";
 // import MyComponent from "./MyComponent";
 // import Counter from "./Counter";
@@ -11,7 +11,7 @@
 // import { Component } from "react";
 // import ScrollBox from "./ScrollBox";
 // import InterationSample from "./IterationSample";
-// import FormInputClass from "./FormInputClass";
+import FormInput from "./FormInput";
 
 // function App() {
 //   const name = "리액트";
@@ -27,11 +27,11 @@
 // }
 
 // 88p
-// const App = () => {
-//   return <MyComponent />;
-// };
+const App = () => {
+  return <FormInput />;
+};
 
-// export default App;
+export default App;
 
 // 92p
 // const App = () => {
@@ -84,32 +84,32 @@
 //
 
 //186p
-import React, { Component } from "react";
-import LifeCycleSample from "./LifeCycleSample";
-import ErrorBoundary from "./ErrorBoundary";
+// import React, { Component } from "react";
+// import LifeCycleSample from "./LifeCycleSample";
+// import ErrorBoundary from "./ErrorBoundary";
 
-// 랜덤 색상을 생성합니다.
-function getRandomColor() {
-  return "#" + Math.floor(Math.random() * 16777215).toString(16);
-}
-class App extends Component {
-  state = {
-    color: "#000000",
-  };
-  handleClick = () => {
-    this.setState({
-      color: getRandomColor(),
-    });
-  };
-  render() {
-    return (
-      <div>
-        <button onClick={this.handleClick}>랜덤 색상</button>
-        <ErrorBoundary>
-          <LifeCycleSample color={this.state.color} />
-        </ErrorBoundary>
-      </div>
-    );
-  }
-}
-export default App;
+// // 랜덤 색상을 생성합니다.
+// function getRandomColor() {
+//   return "#" + Math.floor(Math.random() * 16777215).toString(16);
+// }
+// class App extends Component {
+//   state = {
+//     color: "#000000",
+//   };
+//   handleClick = () => {
+//     this.setState({
+//       color: getRandomColor(),
+//     });
+//   };
+//   render() {
+//     return (
+//       <div>
+//         <button onClick={this.handleClick}>랜덤 색상</button>
+//         <ErrorBoundary>
+//           <LifeCycleSample color={this.state.color} />
+//         </ErrorBoundary>
+//       </div>
+//     );
+//   }
+// }
+// export default App;

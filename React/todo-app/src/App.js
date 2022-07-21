@@ -65,15 +65,61 @@
 
 //실습
 
+import { useState, useRef, useCallback } from "react";
 import MemberInsert from "./MemberInsert";
 import MemberList from "./MemberList";
 import MemberTemplate from "./MemberTemplate";
 
 const App = () => {
+  const [todos, setTodos] = useState([]);
+  const [updata, setUpdata] = useState({
+    id: "",
+    pw: "",
+    email: "",
+    gender: "",
+  });
+
+  const nextId = useRef(4);
+
+  const onInsert = useCallback(
+    (id, pw, email, gender) => {
+      const todo = {
+        id: id,
+        pw: pw,
+        email: email,
+        gender: gender,
+      };
+      setTodos(todos.concat(todo));
+      nextId.current += 1;
+    },
+    [todos]
+  );
+  const onRemove = useCallback(
+    (id) => {
+      setTodos(todos.filter((todo) => todo.id !== id));
+    },
+    [todos]
+  );
+
+  const onUpdata = useCallback(
+    (id) => {
+      const upDataValue = todos.filter((todo) => todo.id === id)[0];
+      const copyUpData = {
+        ...updata,
+        id: upDataValue.id,
+        pw: upDataValue.pw,
+        email: upDataValue.email,
+        gender: upDataValue.gender,
+      };
+      setUpdata(copyUpData);
+    },
+    [todos]
+  );
+
   return (
     <MemberTemplate>
-      <MemberInsert />
-      <MemberList />
+      <MemberInsert onInsert={onInsert} updata={updata} />
+      <MemberList todos={todos} onRemove={onRemove} onUpdata={onUpdata} />
     </MemberTemplate>
   );
 };
