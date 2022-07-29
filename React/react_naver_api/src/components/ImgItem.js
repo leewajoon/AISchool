@@ -1,15 +1,16 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const ImgItemBlock = styled.div`
-  display: flex;
+  display: block;
 
   .thumbnail {
     margin-right: 1rem;
     img {
+      position: center;
       display: block;
-      width: 160px;
-      height: 100px;
+      width: 760px;
+      height: 430px;
       object-fit: cover;
     }
   }
@@ -17,7 +18,7 @@ const ImgItemBlock = styled.div`
     h2 {
       margin: 0;
       a {
-        color: black;
+        color: blue;
       }
     }
     p {
@@ -32,13 +33,13 @@ const ImgItemBlock = styled.div`
   }
 `;
 const ImgItem = ({ article }) => {
-  const { title, link, thumbnail, sizeheight, sizewidth } = article;
+  const { title, link, thumbnail } = article;
   return (
     <ImgItemBlock>
       {thumbnail && (
         <div className="thumbnail">
           <a href={link} target="_blank" rel="noopener noreferrer">
-            <img src={thumbnail} alt="thumbnail" />
+            <img src={link} alt="thumbnail" />
           </a>
         </div>
       )}
@@ -48,10 +49,9 @@ const ImgItem = ({ article }) => {
             {title}
           </a>
         </h2>
-        <p>{description}</p>
       </div>
     </ImgItemBlock>
   );
 };
 
-export default NewsItem;
+export default ImgItem;
